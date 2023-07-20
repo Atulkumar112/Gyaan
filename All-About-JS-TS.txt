@@ -1,2 +1,0 @@
--->prompt() method:- this is similer to alert function but it takes input from user in our pop up window.
-
