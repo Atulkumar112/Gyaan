@@ -35,3 +35,5 @@ Time-series data is a type of data that records values at different points in ti
 ----------------------------------------------------------------------*Adminer*------------------------------------------------------------
 
 Adminer is a free and open-source database management tool that allows users to interact with various database systems through a web-based user interface. It supports multiple database systems, including PostgreSQL, MySQL, SQLite, MS SQL, Oracle, and others.
+
+																	
