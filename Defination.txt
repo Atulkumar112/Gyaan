@@ -39,7 +39,7 @@ Adminer is a free and open-source database management tool that allows users to 
 
 ------------------------------------------------------*Encription (for login password security)*--------------------------------------------------------
 
-We can convert our password into the encripted format and then store it into the database. there are many techniques but two majar techniques are Encription and hashing. Hashing is more reliable and secure more then encription so we will use hashing.
+We can convert our password into the encripted format and then store it into the database we do that thing for more security. there are many techniques but two majar techniques are Encription and hashing. Hashing is more reliable and secure more then encription so we will use hashing.
 Encription:- In the encription let suppose we have password like xyz so first we have to convert it into a key then this key will be encripted. and main disadvantage is that anyone (hacker) can discrepte it from encripted key to actual password. and we can lost our password.
 Hashing:- In the hashing let suppose we have password xyz and then we encripted it directly. and best advantage is it can't be decripted. we can do hashing with many algorithms but majar are two algorithms md5 and bcrypted. md5 became old algo so right now we use bcripted. You can also try md5 in terminal just write in vs code terminal (where is the package.json file) :- 
 command -- "md5sum package.json"  then you will see a encrypted key.
