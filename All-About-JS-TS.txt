@@ -3,5 +3,13 @@
 const obj = {a: 1, b: 2, c: 3};
 console.table(obj) // the outpt should be in table form. just run it in console and see.
 
-
-
+----------for serching logic------------
+ if (query === '') {
+    result = allSpacecrafts.value
+  } else {
+    result = allSpacecrafts.value.filter((s) =>
+      (
+        (s?.name ?? '').replace(/[^A-Za-z]/g, '').toLowerCase() + s.noradCatId
+      ).includes(query)
+    )
+  }
