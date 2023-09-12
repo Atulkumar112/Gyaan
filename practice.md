@@ -1,3 +1,14 @@
-this is my readme file
+## Practice Readme
+
 `hi this is me`
-//hello
+
+### lets also see this
+
+```bash
+System.out.println("varibale value is:-"+var);
+
+```
+
+### Links
+
+- [NestJS](https://docs.nestjs.com/)
