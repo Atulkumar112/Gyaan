@@ -138,6 +138,119 @@ I am callback function
 
 ```
 
+## Promises
+Promise is nothing but it's the parallel execution of an asynchronous operation.
+
+A Promise is in one of these states:
+
+- pending: initial state, neither fulfilled nor rejected.
+- fulfilled: meaning that the operation was completed successfully.
+- rejected: meaning that the operation failed.
+
+Example:-
+```bash
+let promise = new Promise((resolve, reject) => {
+        console.log("Promise is pending")
+        setTimeout(() => {
+                console.log("I am a promise and I am resolved")
+                resolve("hi, i am fulfilled")
+                // console.log("I am a promise and I am rejected")
+                // reject(new Error("I am an error"))
+        }, 3000)
+})
+
+promise.then((value)=>{
+        console.log(value) 
+},(error)=>{
+        console.error(error)
+})
+
+```
+
+### Promises chaining
+We can chain promises and make them pass the resolved value to one another. i.e,
+
+```bash
+new Promise(function(resolve, reject) {
+
+  setTimeout(() => resolve(1), 1000); // (*)
+
+}).then(function(result) { // (**)
+
+  alert(result); // 1
+  return result * 2;
+
+}).then(function(result) { // (***)
+
+  alert(result); // 2
+  return result * 2;
+
+}).then(function(result) {
+
+  alert(result); // 4
+  return result * 2;
+
+}).then((result) => {
+    alert(result)
+    console.log("all done")
+});
+```
+- Promises chaining this is the solution of callback hell.
+
+### Promises API
+There are 6 static method of promise class:
+1 Promise.all(promises):- Waits for all promises to resolve and returns the array of their results. If any one fails, it becomes the error & all other results are ignored.
+
+2 Promise.allSettled(promises):- Waits for the first promise to setle and returns their results as an arrayof objects with status and value.
+
+3 Promise.race(promises):- Waits for the first promise to settle and its result/error becomes the outcome.
+
+4 Promise.any(promises):- Waits for the first promise to fulfill (& not rejected), and its result becomes the outcome. Throws AffrefateError if all the promises are rejected.
+
+5 Promise.resolve(promises):- Makes a resolved promise with the given value.
+
+4 Promise.reject(promises):- Makes a rejected promise with the error.
+
+Examples:
+
+```bash
+let p1 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+                resolve("Value 1");
+        }, 1000);
+});
+
+let p2 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+                // resolve("Value 2");
+                reject(new Error("Error"));
+        }, 2000);
+});
+
+let p3 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+                resolve("Value 3");
+        }, 3000);
+});
+
+
+let promise_all = Promise.all([p1, p2, p3])
+// let promise_all = Promise.allSettled([p1, p2, p3])
+// let promise_all = Promise.race([p1, p2, p3])
+// let promise_all = Promise.any([p1, p2, p3])
+// let promise_all = Promise.resolve(6)
+// let promise_all = Promise.reject(new Error("Hey"))
+promise_all.then((value) => {
+    console.log(value)
+})
+
+```
+### Async/Await
+
+There is a special syntex to work with promises in javascript.
+
+
+
 
 
 
