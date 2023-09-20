@@ -199,17 +199,17 @@ new Promise(function(resolve, reject) {
 
 ### Promises API
 There are 6 static method of promise class:
-1 Promise.all(promises):- Waits for all promises to resolve and returns the array of their results. If any one fails, it becomes the error & all other results are ignored.
+1. Promise.all(promises):- Waits for all promises to resolve and returns the array of their results. If any one fails, it becomes the error & all other results are ignored.
 
-2 Promise.allSettled(promises):- Waits for the first promise to setle and returns their results as an arrayof objects with status and value.
+2. Promise.allSettled(promises):- Waits for the first promise to setle and returns their results as an arrayof objects with status and value.
 
-3 Promise.race(promises):- Waits for the first promise to settle and its result/error becomes the outcome.
+3. Promise.race(promises):- Waits for the first promise to settle and its result/error becomes the outcome.
 
-4 Promise.any(promises):- Waits for the first promise to fulfill (& not rejected), and its result becomes the outcome. Throws AffrefateError if all the promises are rejected.
+4. Promise.any(promises):- Waits for the first promise to fulfill (& not rejected), and its result becomes the outcome. Throws AffrefateError if all the promises are rejected.
 
-5 Promise.resolve(promises):- Makes a resolved promise with the given value.
+5. Promise.resolve(promises):- Makes a resolved promise with the given value.
 
-4 Promise.reject(promises):- Makes a rejected promise with the error.
+6. Promise.reject(promises):- Makes a rejected promise with the error.
 
 Examples:
 
@@ -247,14 +247,112 @@ promise_all.then((value) => {
 ```
 ### Async/Await
 
-There is a special syntex to work with promises in javascript.
+There’s a special syntax to work with promises in a more comfortable fashion, called “async/await”. It’s surprisingly easy to understand and use.
 
+### Async functions
+Let’s start with the async keyword. It can be placed before a function, like this:
 
+``` bash
+async function f() {
+  return 1;
+}
+```
+The word “async” before a function means one simple thing: a function always returns a promise. Other values are wrapped in a resolved promise automatically.
 
+###Await
+The syntax:
+``` bash
+// works only inside async functions
+let value = await promise;
+```
+The keyword await makes JavaScript wait until that promise settles and returns its result.
 
+- Let’s emphasize: await literally suspends the function execution until the promise settles, and then resumes it with the promise result. That doesn’t cost any CPU resources, because the JavaScript engine can do other jobs in the meantime: execute other scripts, handle events, etc.
 
+## Error handling,"try...catch"
 
+No matter how great we are at programming, sometimes our scripts have errors. They may occur because of our mistakes, an unexpected user input, an erroneous server response, and for a thousand other reasons.
 
+Usually, a script “dies” (immediately stops) in case of an error, printing it to console.
 
+But there’s a syntax construct try...catch that allows us to “catch” errors so the script can, instead of dying, do something more reasonable.
+
+The try...catch construct has two main blocks: try, and then catch:
+```bash
+try {
+
+  // code...
+
+} catch (err) {
+
+  // error handling
+
+}
+```
+- *inside the try block we can writes only synchronous methods.*
+
+- *Error messages:-* err.name and err.message. just try youself
+
+### final() Clause:
+
+`final()` defines after the catch block. it will run at any cost, weather try throw error or run fine or catch run or not, but final will be run. 
+
+### XMLHttpRequest
+XMLHttpRequest (XHR) objects are used to interact with servers. You can retrieve data from a URL without having to do a full page refresh. This enables a Web page to update just part of a page without disrupting what the user is doing. XMLHttpRequest is used heavily in AJAX programming.
+- AJAX: Asynchronous JavaScript and XML, or Ajax, is not a technology in itself, but rather an approach to using a number of existing technologies together, including HTML or XHTML, CSS, JavaScript, DOM, XML, XSLT, and most importantly the XMLHttpRequest object. When these technologies are combined in the Ajax model, web applications are able to make quick, incremental updates to the user interface without reloading the entire browser page. This makes the application faster and more responsive to user actions. Ajax's most appealing characteristic is its "asynchronous" nature, which means it can communicate with the server, exchange data, and update the page without having to refresh the page.
+
+Although X in Ajax stands for XML, JSON is preferred because it is lighter in size and is written in JavaScript. Both JSON and XML are used for packaging information in the Ajax model.
+
+## Using the Fetch API
+
+JavaScript can send network requests to the server and load new information whenever it’s needed.
+
+```bash
+async function logMovies() {
+  const response = await fetch("http://example.com/movies.json");  // this gives only status
+  const movies = await response.json();     // then this gives data
+  console.log(movies);
+}
+
+// Similarly we can do same thing using 2 times .then() , first .then() would be for status and second .then() would be for data.
+
+```
+[fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
+
+### Cookies
+Cookies are small strings of data stored directly in the browser as JSON format. In JS, document cookie provides access to cookies.
+You can check, which website stored your cookies in you browser by this:-
+```bash
+alert(document.cookie);
+
+// you can alos add anything in you cookie
+document.cookie = "username = atulkumar9999"
+```
+- when we writes cookie then it's not touch previous cookies. it just add new one.
+
+### Local Storage
+The localStorage object allows you to save key/value pairs in the browser. Note The localStorage object stores data with no expiration date. The data is not deleted when the browser is closed, and are available for future sessions.
+
+Examples:
+```bash
+localStorage.setItem("name", "atul");
+localStorage.getItem("name");
+localStorage.removeItem("name");
+localStorage.clear();
+```
+
+### Session Storage
+Session storage is also same like local storage. but the major diff is if we refresh our page or open same page in diff tab then all data will be vanish.
+
+### Diff b/w cookie and localstorage 
+1. Key differences between the three. Cookies can be set to expire after a certain amount of time or be deleted manually, while local and session storage can be cleared only by the user or through a script. 
+
+2. Cookies are sent back to the server with every request, while local and session storage are not automatically sent to the server.
+
+3. OR Cookies are smaller and send server information back with every HTTP request, while LocalStorage is larger and can hold information on the client side.
+
+##Links
+
+- [JavaScript](https://javascript.info/) 
 
 
