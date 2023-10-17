@@ -138,6 +138,16 @@ I am callback function
 
 ```
 
+we can do same thing by passing the method directly in greet funtion. so why we use callback function?
+### Flexibility and Reusability:
+- Using a callback function as an argument allows you to make your greet function more versatile. It can be reused with different callback functions, making it adaptable to various scenarios.
+- If you use the callback approach, you can easily change the behavior of callMe or use different callback functions for different situations without modifying the greet function itself.
+
+### Encapsulation and Separation of Concerns:
+- By passing a callback function as an argument, you are separating the concerns of the asynchronous task and what should happen when it's done. This separation of concerns makes your code more modular and easier to understand.
+- It's a good practice in software development to keep different functionalities separated, as it makes the code more maintainable and testable.
+
+
 ## Promises
 Promise is nothing but it's the parallel execution of an asynchronous operation.
 
@@ -259,7 +269,7 @@ async function f() {
 ```
 The word “async” before a function means one simple thing: a function always returns a promise. Other values are wrapped in a resolved promise automatically.
 
-###Await
+### Await
 The syntax:
 ``` bash
 // works only inside async functions
@@ -351,8 +361,55 @@ Session storage is also same like local storage. but the major diff is if we ref
 
 3. OR Cookies are smaller and send server information back with every HTTP request, while LocalStorage is larger and can hold information on the client side.
 
-##Links
+## Closures
+A closure gives you access to an outer function's scope from an inner function. 
+Closures are a fundamental concept in JavaScript and are created when a function is defined inside another function. They allow functions to "remember" and access the variables and parameters from their containing scope.
 
-- [JavaScript](https://javascript.info/) 
+```bash
+# example 1
+function init() {
+  var name = "Mozilla"; // name is a local variable created by init
+  function displayName() {
+    // displayName() is the inner function, that forms the closure
+    console.log(name); // use variable declared in the parent function
+  }
+  displayName();
+}
+init();
+
+# example 2
+
+function makeFunc() {
+  const name = "Mozilla";
+  function displayName() {
+    console.log(name);
+  }
+  return displayName;
+}
+
+const myFunc = makeFunc();
+myFunc();
+
+# example 3
+
+function makeAdder(x) {
+  return function (y) {
+    return x + y;
+  };
+}
+
+const add5 = makeAdder(5);
+const add10 = makeAdder(10);
+
+console.log(add5(2)); // 7
+console.log(add10(2)); // 12
+
+
+```
+
+## Links
+
+- [JavaScript From javascript.info](https://javascript.info/) 
+- [JavaScript from MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
 
