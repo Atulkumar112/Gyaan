@@ -32,3 +32,32 @@ Now, Docker is different from traditional virtual machines. Instead of emulating
 
 In summary, virtual machines provide full system emulation, running separate operating systems, while Docker containers offer lightweight and isolated environments for running individual applications on a shared operating system. This makes Docker more efficient and faster to start compared to traditional virtual machines.
 
+### Diff b/w docker container and docker images
+
+#### Docker image
+
+- Definition: A Docker image is a read-only template that contains the application's code, runtime environment, libraries, dependencies, and everything required to run the application.
+
+- Purpose: It's essentially the blueprint or snapshot of your application and environment, which can be used to create containers.
+ 
+- Immutable: Images cannot be changed once they are created. If changes are needed, a new image must be built.
+ 
+- Stored: Images are stored in Docker's local registry or a remote registry like Docker Hub.
+ 
+- Example: ubuntu:latest or nginx:alpine are examples of pre-built images.
+
+
+#### Docker Container:
+
+- Definition: A Docker container is a running instance of a Docker image. When you run an image, it creates a container that is an executable package containing everything needed to run the software, including the image.
+ 
+- Purpose: Containers are the live environments in which your application runs. They are isolated, lightweight, and portable.
+ 
+- Mutable: Containers can be modified while running (e.g., changing files, configurations), but those changes do not persist in the image itself. When a container is stopped and removed, changes are usually lost unless they are committed to a new image.
+ 
+- Example: When you run docker run nginx, you're creating a container from the nginx image.
+
+
+
+
+
